@@ -9,9 +9,13 @@
   "type": "package",
   "autoload": {
     "psr-4": {
-      "Mosaiqo\\Cqrs\\": "./src",
-      "Mosaiqo\\Cqrs\\Tests\\": "./tests",
-      "Mosaiqo\\Cqrs\\Stubs\\": "./stubs"
+      "Mosaiqo\\Cqrs\\": "/src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "/tests",
+      "Stubs\\": "/stubs"
     }
   },
   "require-dev": {
