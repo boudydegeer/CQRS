@@ -7,6 +7,10 @@
   ],
   "license": "MIT",
   "type": "package",
+  "dist": {
+    "url": "git@github.com:boudydegeer/CQRS.git",
+    "type": "git"
+  },
   "autoload": {
     "psr-4": {
       "Mosaiqo\\Cqrs\\": "src/"
