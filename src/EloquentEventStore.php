@@ -2,9 +2,11 @@
 
 namespace Mosaiqo\Cqrs;
 
-use Mosaiqo\Cqrs\Contracts\AggregateIdentity;
-use Mosaiqo\Cqrs\Contracts\DomainEvent;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 use Mosaiqo\Cqrs\Contracts\EventStore;
+use Mosaiqo\Cqrs\Contracts\DomainEvent;
+use Mosaiqo\Cqrs\Contracts\AggregateIdentity;
 
 class EloquentEventStore implements EventStore
 {
@@ -27,6 +29,24 @@ class EloquentEventStore implements EventStore
 
     $eventPublisher = DomainEventPublisher::instance();
     $eventPublisher->publish($event);
+	}
+
+	/**
+	 * @param AggregateIdentity $aggregateIdentity
+	 * @param Collection $events
+	 * @author Boudy de Geer <boudydegeer@mosaiqo.com>
+	 *
+	 * @return mixed|void
+	 */
+	public static function persistAllFor(AggregateIdentity $aggregateIdentity, Collection $events)
+	{
+		$store = new EloquentEventStore();
+		DB::beginTransaction();
+		$events->each(function ($event) use ($store, $aggregateIdentity) {
+			$store->persist($aggregateIdentity, $event);
+		});
+		DB::commit();
+
 	}
 
 	/**
