@@ -2,6 +2,8 @@
 
 namespace Mosaiqo\Cqrs\Contracts;
 
+use Illuminate\Support\Collection;
+
 interface EventStore
 {
 	/**
