@@ -1,6 +1,6 @@
 <?php
 
-namespace Mosaiqo\Cqrs\Tests;
+namespace Tests;
 
 use Mockery as m;
 

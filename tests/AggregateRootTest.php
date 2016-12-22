@@ -1,10 +1,10 @@
 <?php
 
-namespace Mosaiqo\Cqrs\Tests;
+namespace Tests;
 
 use Mockery as m;
-use Mosaiqo\Cqrs\Stubs\DomainEventStub;
-use Mosaiqo\Cqrs\Stubs\AggregateRootStub;
+use Stubs\DomainEventStub;
+use Stubs\AggregateRootStub;
 
 class AggregateRootTest extends TestCase {
 

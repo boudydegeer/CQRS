@@ -1,6 +1,6 @@
 <?php
 
-namespace Mosaiqo\Cqrs\Stubs;
+namespace Stubs;
 
 use Mosaiqo\Cqrs\AggregateRoot;
 use Mosaiqo\Cqrs\Contracts\DomainEvent;
@@ -13,7 +13,7 @@ class AggregateRootStub extends AggregateRoot
 		parent::process($event);
 	}
 
-	public function apply(DomainEvent $event)
+	public function apply($event)
 	{
 		parent::apply($event);
 	}
